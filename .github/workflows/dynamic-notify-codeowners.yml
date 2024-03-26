@@ -2,6 +2,7 @@ name: Dynamically Notify Code Owners
 
 on:
   pull_request:
+    types: [opened, synchronize]
 
 jobs:
   notify:
