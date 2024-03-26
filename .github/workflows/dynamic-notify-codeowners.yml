@@ -23,7 +23,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           FILES=${{ steps.files.outputs.files }}
-          CODEOWNERS=$(cat CODEOWNERS | jq -R -s 'split(\"\n\") | .[:-1]')
+          CODEOWNERS=$(cat CODEOWNERS | jq -R -s 'split("\\n") | .[:-1]')
           OWNERS=()
           for file in $(echo $FILES | jq -r '.[]'); do
             for line in $(echo $CODEOWNERS | jq -r '.[]'); do
